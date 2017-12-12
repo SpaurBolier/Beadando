@@ -4,22 +4,23 @@
     <link rel="favicon" href="pictures/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venezuelai Pudlimoly/Hogyan tartsuk?</title>
 </head>
 <body>
-<div class="navbar">
-    <a href="Pudlimoly.html">Kezdőlap</a>
+<div class="topnav" id="myTopnav">
+    <a href="Pudlimoly.html" class="active">Kezdőlap</a>
     <a href="hogyantartsuk.html">Hogyan tartsuk</a>
     <a href="fontostudni.html">Fontos tudnivalók</a>
     <a href="szarmazas.html">Származása</a>
     <a href="jogszabaly.html">Magyarországi jogszabályok</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
     <div class="header-box">
         <h1>Pudlimoly, mint háziállat?</h1>
     </div>
     </div>
-    <div class="box">
-        <div class="box"id="picbox">
+<div class="box" id="picbox">
             <img id="pudli-3" src="pictures/pudli-1.jpg" alt="Pudlimoly">
             <p>Lehetséges, de elég igényes fajta háziállatka!</p>
             <p>Mire is van szükségük? </p>
@@ -40,5 +41,15 @@
     <footer>
         Készítette: Mezei Dániel Márk
     </footer>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
 </body>
 </html>

@@ -4,22 +4,22 @@
     <link rel="favicon" href="pictures/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venezuelai Pudlimoly/Magyarországi Jogszabályok</title>
 </head>
 <body>
-<div class="navbar">
-    <a href="Pudlimoly.html">Kezdőlap</a>
+<div class="topnav" id="myTopnav">
+    <a href="Pudlimoly.html" class="active">Kezdőlap</a>
     <a href="hogyantartsuk.html">Hogyan tartsuk</a>
     <a href="fontostudni.html">Fontos tudnivalók</a>
     <a href="szarmazas.html">Származása</a>
     <a href="jogszabaly.html">Magyarországi jogszabályok</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
     <div class="header-box">
         <h1>Nem árt ezekre odafigyelni!</h1>
     </div>
-    </div>
-    <div class="box">
-        <div class="box"id="picbox">
+<div class="box" id="picbox">
             <img id="pudli-3" src="pictures/mk_torv.png" alt="MKT">
             <p>Magyarországon a Pudlimoly tartása lehetséges, de mivel mostanság eléggé megcsappant a létszámuk, így kezdenek a védett fajok csoportjába tartozni.</p>
             <p>A hivatalos állatvédő szervezet felé be kell jelenteni, hogy ilyen házikedvenccel rendelkezünk. Akik 3-5 havonta látogatást tesznek a tulajdonos lakásán, hogy ellenőrizzék a megfelelő körülményeket a molylepke számára. Ha a bejelentést nem tesszük meg, de kiderül hogy egy ilyen házikedvenc van a birtokunkban igen nagy pénzbüntetéssel fognak sújtani. Akár bírósági tárgyalásig is lehet vinni az ügyet.</p>
@@ -27,6 +27,16 @@
         </div>
     </div>
 </body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
 <footer>
     Készítette: Mezei Dániel Márk
 </footer>

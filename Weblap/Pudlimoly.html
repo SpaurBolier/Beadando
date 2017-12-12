@@ -4,28 +4,41 @@
     <link rel="favicon" href="pictures/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venezuelai Pudlimoly</title>
 </head>
 <body>
-<div class="navbar">
-    <a href="Pudlimoly.html">Kezdőlap</a>
+<div class="topnav" id="myTopnav">
+    <a href="Pudlimoly.html" class="active">Kezdőlap</a>
     <a href="hogyantartsuk.html">Hogyan tartsuk</a>
     <a href="fontostudni.html">Fontos tudnivalók</a>
     <a href="szarmazas.html">Származása</a>
     <a href="jogszabaly.html">Magyarországi jogszabályok</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 <div class="header-box">
     <h1>Venezuelai Pudlimoly</h1>
 </div>
-<div class="box">
-    <div class="box"id="picbox">
+    <div class="box" id="picbox">
     <img id="pudli-3" src="pictures/pudlimoly-3.jpg" alt="Pudlimoly">
         <p>A nagyvilágban számtalan olyan élőlény él, melyeknek még a létezéséről sem hallhattunk, a legtöbb pedig pont úgy néz ki, mintha a rémisztő fantáziáink megvalósulása lenne.</p>
         <p>Széles körű tudományos vitát váltott ki a korábban ismeretlen állatról készített fotó. Arthuer Anker, rovarok taxonómiájával, sokféleségével és fejlődéstörténetével foglalkozó kutató kapta lencsevégre a különleges molyt. A tudós ismeretlen lepkefajok után kutatott a venezuelai Gran Sabana területén, amikor 2009-ben felfedezte a különleges lepkefajt. A Dr. Anker által lefényképezett moly az úgynevezett venezuelan poodle moth (nyersfordításban: venezuelai pudlimoly) egy zoológus szerint az Arctiidae családjába tartozik. Később egy kriptozoológus, Karl Shuker jött rá, hogy rokonok lehetnek a felemás medvelepkével. A faj sok szempontból hasonlóságot mutat a muszlin lepkével.</p>
     </div>
-</div>
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+</body>
 <footer>
     Készítette: Mezei Dániel Márk
 </footer>
-</body>
+
 </html>
