@@ -118,14 +118,16 @@ body {margin:0;}
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #23af82;
     color: white;
 }
 
 .topnav .icon {
     display: none;
 }
-
+b{
+    color:red;
+}
 @media screen and (max-width: 1026px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
@@ -146,14 +148,12 @@ body {margin:0;}
         display: block;
         text-align: left;
     }
-
-}
-@media screen and (max-width: 1026px) {
     .box{
         width: 70%;
     }
     .header-box{
         width: 70%;
+        margin-top: auto;
 
     }
     #picbox{
@@ -172,3 +172,4 @@ body {margin:0;}
         position: relative;
     }
 }
+
