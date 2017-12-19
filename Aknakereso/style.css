@@ -2,3 +2,7 @@
     display: block;
     margin: auto;
 }
+td{
+    border: 3px solid black;
+    text-align: center;
+}

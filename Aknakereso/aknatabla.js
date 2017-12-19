@@ -1,15 +1,15 @@
-var M = 10, S = 10, B = 10;
-var asztal = [];
-var allas = [];
-var Clear = 0,
+var M = 6, S = 6, B = 6;
+/*--------------------------------*/
+var tabla = [];
+var pontok = [];
+var Semmi = 0,
     Flag = 1,
-    Szabad = 2;
+    Ures = 2;
 var Bomba = -1;
-var jatek = true;
+var Jatek = true;
 
 function onTable(x, y) {
-    return x >= 0 && y >= 0
-        && x < M && y < S;
+    return x >= 0 && y >= 0 && x < M && y < S;
 }
 
 function countMines(x, y) {
@@ -22,7 +22,7 @@ function countMines(x, y) {
             var yy = y + dy,
                 xx = x + dx;
             if (onTable(xx, yy)) {
-                if (asztal[yy][xx] == Bomba) {
+                if (tabla[yy][xx] == Bomba) {
                     ++count;
                 }
             }
@@ -31,13 +31,13 @@ function countMines(x, y) {
     return count;
 }
 
-function init() {
+function generateMinefield() {
     for (var y = 0; y < S; ++y) {
-        asztal.push([]);
-        allas.push([]);
+        tabla.push([]);
+        pontok.push([]);
         for (var x = 0; x < M; ++x) {
-            asztal[y].push(0);
-            allas[y].push(Clear);
+            tabla[y].push(0);
+            pontok[y].push(Semmi);
         }
     }
 
@@ -46,53 +46,54 @@ function init() {
         do {
             x = Math.floor(Math.random() * M),
                 y = Math.floor(Math.random() * S);
-        } while (asztal[y][x] == Bomba);
+        } while (tabla[y][x] == Bomba);
 
-        asztal[y][x] = Bomba;
+        tabla[y][x] = Bomba;
     }
 
     for (var y = 0; y < S; ++y) {
         for (var x = 0; x < M; ++x) {
-            if (asztal[y][x] != Bomba) {
-                asztal[y][x] = countMines(x, y);
+            if (tabla[y][x] != Bomba) {
+                tabla[y][x] = countMines(x, y);
             }
         }
     }
 }
 
-function nyBlock(x, y) {
-    if (!jatek) {
+function guiWin(x, y) {
+    if (!Jatek) {
         return;
     }
-    if (allas[y][x] == Flag) {
+    if (pontok[y][x] == Flag) {
         return;
     }
 
-    if (asztal[y][x] == Bomba) {
+    if (tabla[y][x] == Bomba) {
         alert('Vége a játéknak');
-        jatek = false;
+        Jatek = false;
         felfed(false);
         return;
     }
 
-    allas[y][x] = Szabad;
-    if (asztal[y][x] == 0) {
+    pontok[y][x] = Ures;
+    if (tabla[y][x] == 0) {
         for (var dx = -1; dx <= 1; ++dx) {
             for (var dy = -1; dy <= 1; ++dy) {
                 var xx = x + dx,
                     yy = y + dy;
                 if (onTable(xx, yy)) {
-                    if (allas[yy][xx] != Szabad) {
-                        nyBlock(xx, yy);
+                    if (pontok[yy][xx] != Ures) {
+                        guiWin(xx, yy);
                     }
                 }
             }
         }
+
     }
 
     if (nyertE()) {
         alert('Nyertél');
-        jatek = false;
+        Jatek = false;
         felfed(true);
     }
 }
@@ -100,8 +101,8 @@ function nyBlock(x, y) {
 function nyertE() {
     for (var y = 0; y < S; ++y) {
         for (var x = 0; x < M; ++x) {
-            if (asztal[y][x] != Bomba) {
-                if (allas[y][x] != Szabad) {
+            if (tabla[y][x] != Bomba) {
+                if (pontok[y][x] != Ures) {
                     return false;
                 }
             }
@@ -111,22 +112,20 @@ function nyertE() {
 }
 
 function zBlock(x, y) {
-    if (allas[y][x] == Szabad) {
+    if (pontok[y][x] == Ures) {
         return;
     }
-    allas[y][x] = 1 - allas[y][x];
+    pontok[y][x] = 1 - pontok[y][x];
 }
 
 function felfed(victorious) {
     for (var y = 0; y < S; ++y) {
         for (var x = 0; x < M; ++x) {
-            if (asztal[y][x] == Bomba && victorious) {
-                allas[y][x] = Flag;
+            if (tabla[y][x] == Bomba && victorious) {
+                pontok[y][x] = Flag;
                 continue;
             }
-            allas[y][x] = Szabad;
+            pontok[y][x] = Ures;
         }
     }
 }
-
-init();
