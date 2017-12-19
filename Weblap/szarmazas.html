@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
+    <script src="ToggleMenu.js" type="text/javascript"></script>
     <link rel="favicon" href="pictures/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <a href="fontostudni.html">Fontos tudnivalók</a>
     <a href="szarmazas.html">Származása</a>
     <a href="jogszabaly.html">Magyarországi jogszabályok</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    <a href="javascript:void(0);" class="icon" onclick="ToggleMenu()">&#9776;</a>
 </div>
 </div>
 <div class="header-box">
@@ -30,15 +31,5 @@
 <footer>
     Készítette: Mezei Dániel Márk
 </footer>
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
 </body>
 </html>
